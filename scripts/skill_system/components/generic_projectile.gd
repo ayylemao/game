@@ -6,7 +6,7 @@ class_name Projectile
 @export var rot_speed: float = 1.0
 
 var direction: Vector2 = Vector2.ZERO
-var projectile_owner: Node = null
+var caster: Node = null
 var skill: Skill = null
 
 func _ready() -> void:
@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
     $Sprite2D.rotate(rot_speed)
 
 func _on_body_entered(body: Node) -> void:
-    if body != projectile_owner and skill:
+    if body != caster and skill:
         if skill.has_method("apply_to_target"):
             skill.apply_to_target(body)
             queue_free()

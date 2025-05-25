@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cesmuh5jm5qiw"]
+
+[ext_resource type="Texture2D" uid="uid://coa7oundmjxyk" path="res://art/skills/arc.png" id="1_wgkih"]
+[ext_resource type="Script" uid="uid://gyt1550wjecx" path="res://scripts/skill_system/components/generic_cone.gd" id="2_qu1r0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu1r0"]
+atlas = ExtResource("1_wgkih")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gafl8"]
+atlas = ExtResource("1_wgkih")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg108"]
+atlas = ExtResource("1_wgkih")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxjrf"]
+atlas = ExtResource("1_wgkih")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnj1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu1r0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gafl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg108")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxjrf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Arc" type="Area2D"]
+script = ExtResource("2_qu1r0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, -3)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_pnj1j")
+frame_progress = 0.553005
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(30, 0)
+rotation = 1.5708
+polygon = PackedVector2Array(25, 16, 31, -21, 22, -35, -8, -34, -33, -26, -30, 2, 1.35505e-06, 31)

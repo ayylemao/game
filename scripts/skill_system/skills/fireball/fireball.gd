@@ -8,6 +8,6 @@ func cast(context: SkillContext) -> void:
 	projectile.global_position = context.caster.global_position
 	projectile.direction = (context.target_position - projectile.global_position).normalized()
 	projectile.skill = self
-	projectile.projectile_owner = context.caster
+	projectile.caster = context.caster
 
-	context.projectile_root.add_child(projectile)
+	context.skill_root.add_child(projectile)
