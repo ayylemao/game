@@ -1,12 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://rkpn6eb7qd22"]
 
-[ext_resource type="Script" uid="uid://butofb020uhax" path="res://scripts/skill_system/components/generic_projectile.gd" id="1_lcmb1"]
+[ext_resource type="Script" uid="uid://butofb020uhax" path="res://skill_system/components/generic_projectile.gd" id="1_lcmb1"]
 [ext_resource type="Texture2D" uid="uid://bf4xq5rbqblfs" path="res://art/skills/firebolt.png" id="2_cm5st"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7itfd"]
 radius = 6.0
 
 [node name="FireBallProjectile" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_lcmb1")
 speed = 400.0
 rot_speed = 0.2

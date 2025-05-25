@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4ljxftuewk70"]
 
-[ext_resource type="Script" uid="uid://cer11ymjqgfw4" path="res://ui/helath_bar.gd" id="1_1h43b"]
+[ext_resource type="Script" uid="uid://cer11ymjqgfw4" path="res://ui/overlay/health_bar.gd" id="1_1h43b"]
 
 [node name="HelathBar" type="Control"]
 layout_mode = 3

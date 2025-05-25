@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck7h10dsjb0l3"]
+
+[ext_resource type="Script" uid="uid://dasmpgmlqciix" path="res://enemy/enemy.gd" id="1_5p6bu"]
+[ext_resource type="Texture2D" uid="uid://bn2j5tmmnbqv1" path="res://art/enemy/enemy.png" id="1_7lgfl"]
+[ext_resource type="Script" uid="uid://darts44efve8h" path="res://player/health_component.gd" id="1_d1f0f"]
+[ext_resource type="PackedScene" uid="uid://0x13x0upwu47" path="res://ui/floating/FloatingHealthBar.tscn" id="4_80fio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lgfl"]
+
+[node name="Enemy" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_5p6bu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7lgfl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.06683, 1.6081)
+shape = SubResource("RectangleShape2D_7lgfl")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("1_d1f0f")
+metadata/_custom_type_script = "uid://darts44efve8h"
+
+[node name="FloatingHelathBar" parent="." instance=ExtResource("4_80fio")]
+z_index = 5
+position = Vector2(14, -25)
+health_path = NodePath("../HealthComponent")

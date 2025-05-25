@@ -1,16 +1,12 @@
 extends Control
 
-@export var health_component_path: NodePath
 @onready var bar: ProgressBar = $ProgressBar
-var healthcomponent: HealthComponent
+@onready var healthcomponent: HealthComponent
 
 func _ready() -> void:
 	# Load health component after scene is fully ready
-	if has_node(health_component_path):
-		healthcomponent = get_node(health_component_path)
-	else:
-		push_error("HealthComponent path is invalid.")
-		return
+	healthcomponent = get_node("/root/GameLevel/Player/HealthComponent")
+
 	bar.show_percentage = false
 	# Set up colors
 	var red_bg = StyleBoxFlat.new()

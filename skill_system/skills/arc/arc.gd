@@ -18,3 +18,13 @@ func stop_cast() -> void:
 	if active_cone:
 		active_cone.queue_free()
 		active_cone = null
+
+func apply_to_target(target: Node) -> void:
+	for child in get_children():
+		if child.has_method("apply"):
+			child.apply(target)
+
+func remove_target(target: Node) -> void:
+	for child in get_children():
+		if child.has_method("remove_target"):
+			child.remove_target(target)

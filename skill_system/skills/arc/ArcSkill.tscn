@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://jx3mr1nkwuc0"]
+
+[ext_resource type="Script" uid="uid://dwpbg31evugyk" path="res://skill_system/skills/arc/arc.gd" id="1_51bxh"]
+[ext_resource type="Script" uid="uid://y3ixab7nk36q" path="res://skill_system/components/lightning_element.gd" id="1_ct1st"]
+[ext_resource type="PackedScene" uid="uid://cesmuh5jm5qiw" path="res://skill_system/skills/arc/Arc.tscn" id="2_grskc"]
+[ext_resource type="Script" uid="uid://dvm13agqfqc1c" path="res://skill_system/components/damage_over_time.gd" id="4_wnetw"]
+
+[node name="ArcSkill" type="Node2D"]
+script = ExtResource("1_51bxh")
+cone_scene = ExtResource("2_grskc")
+
+[node name="LightningElement" type="Node" parent="."]
+script = ExtResource("1_ct1st")
+damage = 0.0
+shock_chance = 0.0
+
+[node name="DamageOverTime" type="Node" parent="."]
+script = ExtResource("4_wnetw")
+tick_damage = 10.0
+tick_interval = 0.2
+damage_type = "lightning"
+metadata/_custom_type_script = "uid://dvm13agqfqc1c"
