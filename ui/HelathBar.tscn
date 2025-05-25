@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4ljxftuewk70"]
+
+[ext_resource type="Script" uid="uid://cer11ymjqgfw4" path="res://ui/helath_bar.gd" id="1_1h43b"]
+
+[node name="HelathBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1h43b")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 431.0
+offset_right = 182.0
+offset_bottom = 444.0
+scale = Vector2(1, 1.03968)
+show_percentage = false

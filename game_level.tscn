@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://cssc3kjydk5fk"]
+[gd_scene load_steps=12 format=4 uid="uid://cssc3kjydk5fk"]
 
 [ext_resource type="PackedScene" uid="uid://cvvqddl37ml60" path="res://player.tscn" id="1_qsd0w"]
 [ext_resource type="Script" uid="uid://dexr6c3h0txxs" path="res://scripts/skill_system/core/skill_loadout.gd" id="2_g7mx2"]
 [ext_resource type="PackedScene" uid="uid://cgm3i0xvlclkk" path="res://scripts/skill_system/skills/fireball/FireballSkill.tscn" id="4_qsd0w"]
 [ext_resource type="PackedScene" uid="uid://jx3mr1nkwuc0" path="res://scripts/skill_system/skills/arc/ArcSkill.tscn" id="5_efyo6"]
 [ext_resource type="Texture2D" uid="uid://ctxoy6ypcjcy2" path="res://art/overworld/TX Tileset Grass.png" id="5_g7mx2"]
+[ext_resource type="Script" uid="uid://darts44efve8h" path="res://player/health_component.gd" id="6_efyo6"]
+[ext_resource type="PackedScene" uid="uid://b4ljxftuewk70" path="res://ui/HelathBar.tscn" id="7_wqyo1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g7mx2"]
 texture = ExtResource("5_g7mx2")
@@ -294,4 +296,20 @@ metadata/_custom_type_script = "uid://dexr6c3h0txxs"
 
 [node name="ArcSkill" parent="Player/SkillLoadout" instance=ExtResource("5_efyo6")]
 
+[node name="HealthComponent" type="Node" parent="Player"]
+script = ExtResource("6_efyo6")
+current_health = 20.0
+
 [node name="ActiveProjectiles" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Node" parent="CanvasLayer"]
+
+[node name="HelathBar" parent="CanvasLayer/UI" instance=ExtResource("7_wqyo1")]
+anchors_preset = -1
+anchor_right = 0.046
+anchor_bottom = 0.015
+offset_right = -73.6
+offset_bottom = -13.5
+health_component_path = NodePath("../../../Player/HealthComponent")
