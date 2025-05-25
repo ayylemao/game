@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://cssc3kjydk5fk"]
+[gd_scene load_steps=9 format=4 uid="uid://cssc3kjydk5fk"]
 
 [ext_resource type="PackedScene" uid="uid://cvvqddl37ml60" path="res://player.tscn" id="1_qsd0w"]
 [ext_resource type="Script" uid="uid://dexr6c3h0txxs" path="res://scripts/skill_system/skill_loadout.gd" id="2_g7mx2"]
-[ext_resource type="Script" uid="uid://dnh4k8h2m88jd" path="res://scripts/skills/skill.gd" id="3_efyo6"]
-[ext_resource type="Resource" uid="uid://wqlukyrgv1oi" path="res://scripts/skills/firebolt/firebolt.tres" id="4_wqyo1"]
+[ext_resource type="PackedScene" uid="uid://cgm3i0xvlclkk" path="res://scripts/skill_system/skills/fireball/Fireball.tscn" id="4_qsd0w"]
 [ext_resource type="Texture2D" uid="uid://ctxoy6ypcjcy2" path="res://art/overworld/TX Tileset Grass.png" id="5_g7mx2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g7mx2"]
@@ -287,7 +286,8 @@ speed = 200.0
 
 [node name="SkillLoadout" type="Node" parent="Player"]
 script = ExtResource("2_g7mx2")
-skills = Array[ExtResource("3_efyo6")]([ExtResource("4_wqyo1")])
 metadata/_custom_type_script = "uid://dexr6c3h0txxs"
 
-[node name="Projectiles" type="Node2D" parent="."]
+[node name="Fireball" parent="Player/SkillLoadout" instance=ExtResource("4_qsd0w")]
+
+[node name="ActiveProjectiles" type="Node2D" parent="."]

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 100
 @onready var skill_loadout = $SkillLoadout
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var input_vector := Vector2.ZERO
 	
 	# Read input
@@ -18,10 +18,10 @@ func _physics_process(delta: float) -> void:
 	velocity = input_vector * speed
 	move_and_slide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("mouse_left"):
 		var context = SkillContext.new()
 		context.caster = self
 		context.target_position = get_global_mouse_position()
-		context.projectile_root = get_node("/root/GameLevel/Projectiles")
+		context.projectile_root = get_parent().get_node("ActiveProjectiles")
 		skill_loadout.cast_skill(0, context)

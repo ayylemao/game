@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://rkpn6eb7qd22"]
+
+[ext_resource type="Script" uid="uid://butofb020uhax" path="res://scripts/skill_system/components/generic_projectile.gd" id="1_bgpui"]
+[ext_resource type="Texture2D" uid="uid://bf4xq5rbqblfs" path="res://art/skills/firebolt.png" id="2_vm08w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7itfd"]
+radius = 6.0
+
+[node name="FireBallProjectile" type="Area2D"]
+script = ExtResource("1_bgpui")
+speed = 400.0
+rot_speed = 0.2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vm08w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7itfd")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true

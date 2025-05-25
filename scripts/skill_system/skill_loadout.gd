@@ -1,9 +1,7 @@
 extends Node
 class_name SkillLoadout
 
-@export var skills: Array[Skill]
-
-
 func cast_skill(index: int, context: SkillContext) -> void:
-	if index >= 0 and index < skills.size():
-		skills[index].cast(context)
+	var skill_node := get_child(index)
+	if skill_node is Skill:
+		(skill_node as Skill).cast(context)
