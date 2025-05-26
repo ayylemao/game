@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 100
 @onready var skill_loadout = $SkillLoadout
+@onready var health: HealthComponent = $HealthComponent
 
 var is_casting := false
 
@@ -40,3 +41,7 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_just_released("mouse_right"):
 		is_casting = false
 		skill_loadout.stop_skill(1)
+
+func take_damage(amount: float, _damage_type: String):
+	health.take_damage(amount)
+	print(health.current_health)

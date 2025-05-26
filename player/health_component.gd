@@ -1,11 +1,23 @@
 extends Node
-
 class_name HealthComponent
 
-@export var max_health: float = 100.0
-@export var current_health: float = max_health
+var stats: Stats = null
+var current_health: float = 0.0
+var max_health: float = 0.0
 
 signal died
+
+func _ready() -> void:
+	stats = get_parent().get_node_or_null("Stats")
+	if stats:
+		current_health = stats.current_health
+		max_health = stats.max_health
+	else:
+		push_error("StatsComponent not found as sibling of HealthComponent.")
+
+
+func _process(delta: float) -> void:
+	current_health = clamp(current_health + stats.health_regen_per_sec * delta, 0, max_health)
 
 func take_damage(amount: float) -> void:
 	current_health -= amount
@@ -14,7 +26,8 @@ func take_damage(amount: float) -> void:
 		died.emit()
 
 func heal(amount: float) -> void:
-	current_health = clamp(current_health + amount, 0.0, max_health)
+	if stats:
+		current_health = clamp(current_health + amount, 0.0, stats.max_health)
 
 func is_dead() -> bool:
 	return current_health <= 0.0

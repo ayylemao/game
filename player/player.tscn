@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvvqddl37ml60"]
+[gd_scene load_steps=6 format=3 uid="uid://cvvqddl37ml60"]
 
 [ext_resource type="Texture2D" uid="uid://6gcqn2raekc4" path="res://art/player/player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://rbpqmcvoufn0" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://darts44efve8h" path="res://player/health_component.gd" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://bhhbn133r0q0l" path="res://skill_system/components/stats.gd" id="4_yw30f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
 size = Vector2(18, 32)
@@ -28,5 +29,11 @@ drag_bottom_margin = 0.3
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_g1dw6")
-current_health = 80.0
 metadata/_custom_type_script = "uid://darts44efve8h"
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("4_yw30f")
+health_regen_per_sec = 10.0
+current_health = 60.0
+current_mana = 60.0
+metadata/_custom_type_script = "uid://bhhbn133r0q0l"
