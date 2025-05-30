@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bn2j5tmmnbqv1" path="res://art/enemy/enemy.png" id="1_7lgfl"]
 [ext_resource type="Script" uid="uid://darts44efve8h" path="res://player/health_component.gd" id="1_d1f0f"]
 [ext_resource type="PackedScene" uid="uid://0x13x0upwu47" path="res://ui/floating/FloatingHealthBar.tscn" id="4_80fio"]
-[ext_resource type="Script" uid="uid://bhhbn133r0q0l" path="res://skill_system/components/stats.gd" id="5_55d7h"]
+[ext_resource type="Script" uid="uid://bhhbn133r0q0l" path="res://skill_system/components/base_stats.gd" id="5_55d7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lgfl"]
 
@@ -29,7 +29,7 @@ z_index = 5
 position = Vector2(14, -25)
 health_path = NodePath("../HealthComponent")
 
-[node name="Stats" type="Node" parent="."]
+[node name="BaseStats" type="Node" parent="."]
 script = ExtResource("5_55d7h")
 health_regen_per_sec = 10.0
 metadata/_custom_type_script = "uid://bhhbn133r0q0l"

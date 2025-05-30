@@ -8,7 +8,7 @@ var max_health: float = 0.0
 signal died
 
 func _ready() -> void:
-	stats = get_parent().get_node_or_null("Stats")
+	stats = get_parent().get_node_or_null("BaseStats")
 	if stats:
 		current_health = stats.current_health
 		max_health = stats.max_health
@@ -17,6 +17,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	# health regen
 	current_health = clamp(current_health + stats.health_regen_per_sec * delta, 0, max_health)
 
 func take_damage(amount: float) -> void:
