@@ -14,19 +14,34 @@ func _ready():
 	visible = false
 
 func _process(_delta: float) -> void:
+	# Update the health value
 	bar.value = health_component.current_health
-	if health_component.current_health < health_component.max_health:
-		visible = true
 
-	if has_node(".."):
-		var parent = get_parent()
-		var collision = parent.get_node("CollisionShape2D")
-		var shape = collision.shape
+	var parent := get_parent()
 
-		if shape is RectangleShape2D:
-			var extents = shape.extents
-			var y_offset = extents.y + 10
-			global_position = parent.global_position - Vector2(bar.size.x / 2.0, y_offset)
+	if parent.is_dead():
+		visible = false
+		return
+	# Show only if damaged
+	visible = health_component.current_health < health_component.max_health
+
+	if not parent or not parent.has_node("CollisionShape2D"):
+		return
+
+	var collision = parent.get_node("CollisionShape2D")
+	var shape = collision.shape
+	var offset_y := 0.0
+
+	if shape is RectangleShape2D:
+		offset_y = shape.extents.y + 6
+	elif shape is CircleShape2D:
+		offset_y = shape.radius + 6
+	else:
+		return
+
+	# Use relative position, not global
+	var bar_width := bar.size.x
+	position = Vector2(-bar_width / 2.0, -offset_y)
 
 func _on_died():
 	queue_free()
