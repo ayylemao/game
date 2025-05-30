@@ -29,6 +29,7 @@ func _ready() -> void:
 func _on_died():
 	_dead = true
 	z_index = 1
+	$CollisionShape2D.set_deferred("disabled", true)
 	_anim.play("death")
 	await _anim.animation_finished
 	queue_free()
@@ -45,6 +46,11 @@ func _cast():
 	_casting = true
 	var pre_cast_delay = randf()
 	await get_tree().create_timer(pre_cast_delay).timeout
+
+	if _dead:
+		_casting = false
+		return
+
 	if _last_played_anim == "right":
 		_anim.play("cast_right")
 	else:
@@ -94,7 +100,7 @@ func _physics_process(delta):
 	# Attack logic
 	if _skill_loadout != null:
 		var effective_interval := _stats.cast_speed
-		if can_attack and _time_since_last_cast >= effective_interval and not _dead:
+		if can_attack and _time_since_last_cast >= effective_interval:
 			_cast()
 
 func take_damage(amount: float, _damage_type: String):
