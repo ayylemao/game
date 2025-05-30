@@ -16,4 +16,5 @@ shock_chance = 0.0
 
 [node name="DamageOverTime" type="Node" parent="."]
 script = ExtResource("4_wnetw")
+tick_interval = 0.1
 metadata/_custom_type_script = "uid://dvm13agqfqc1c"

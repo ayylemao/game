@@ -2,6 +2,9 @@ extends Node
 
 class_name Skill
 
+@export var cast_speed_per_second: float = 1.0
+@export var base_attack_speed: float = 1.0
+
 func cast(_context: SkillContext):
 	pass
 

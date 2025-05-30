@@ -1,7 +1,7 @@
 extends Node
 class_name HealthComponent
 
-var stats: Stats = null
+var stats: BaseStats = null
 var current_health: float = 0.0
 var max_health: float = 0.0
 

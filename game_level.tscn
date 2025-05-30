@@ -346,5 +346,20 @@ mouse_filter = 1
 [node name="WorldItem" parent="." instance=ExtResource("11_vugdd")]
 item = SubResource("Resource_qsxfn")
 
-[node name="Enemy" parent="." instance=ExtResource("12_dv4fs")]
-position = Vector2(361, 101)
+[node name="MobPack" type="Node2D" parent="."]
+position = Vector2(11, 27)
+
+[node name="Bat1" parent="MobPack" instance=ExtResource("12_dv4fs")]
+position = Vector2(428, 189)
+
+[node name="Bat2" parent="MobPack" instance=ExtResource("12_dv4fs")]
+position = Vector2(332, 160)
+
+[node name="Bat3" parent="MobPack" instance=ExtResource("12_dv4fs")]
+position = Vector2(442, 127)
+
+[node name="Bat4" parent="MobPack" instance=ExtResource("12_dv4fs")]
+position = Vector2(359, 198)
+
+[node name="Bat5" parent="MobPack" instance=ExtResource("12_dv4fs")]
+position = Vector2(385, 141)
