@@ -1,0 +1,147 @@
+[gd_scene load_steps=6 format=3 uid="uid://buhyrhyjr5ryt"]
+
+[ext_resource type="Script" uid="uid://d3nxoqfditfne" path="res://ui/inventory/slot/inventory_slot.gd" id="1_n2agr"]
+[ext_resource type="Script" uid="uid://c1sw8d225rdbo" path="res://ui/inventory/tooltip/tooltip_manager.gd" id="2_dnrvj"]
+[ext_resource type="PackedScene" uid="uid://cc6g5s32b424k" path="res://ui/inventory/tooltip/tooltip.tscn" id="2_tqg3y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6emmc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4j124"]
+
+[node name="InventorySlot" type="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 100.0
+script = ExtResource("1_n2agr")
+
+[node name="TooltipManager" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("2_dnrvj")
+
+[node name="Tooltip" parent="TooltipManager" instance=ExtResource("2_tqg3y")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TooltipExtended" parent="TooltipManager" instance=ExtResource("2_tqg3y")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+_extended = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="OuterBorder" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.362808, 0.348918, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/OuterBorder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="InnerBorder" type="ColorRect" parent="MarginContainer/OuterBorder/MarginContainer"]
+layout_mode = 2
+color = Color(0.10748, 0.10748, 0.10748, 1)
+
+[node name="QuantityAnchor" type="Control" parent="MarginContainer/OuterBorder/MarginContainer/InnerBorder"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_right = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Quantity" type="Label" parent="MarginContainer/OuterBorder/MarginContainer/InnerBorder/QuantityAnchor"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -55.0
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+
+[node name="ItemAnchor" type="Control" parent="MarginContainer/OuterBorder/MarginContainer/InnerBorder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemIcon" type="TextureRect" parent="MarginContainer/OuterBorder/MarginContainer/InnerBorder/ItemAnchor"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 4
+
+[node name="InteractArea" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6emmc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4j124")
+
+[node name="ClickTimer" type="Timer" parent="MarginContainer/InteractArea"]
+unique_name_in_owner = true
+wait_time = 0.15
+one_shot = true
+
+[connection signal="gui_input" from="MarginContainer/InteractArea" to="." method="_on_interact_area_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/InteractArea" to="." method="_on_interact_area_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/InteractArea" to="." method="_on_interact_area_mouse_exited"]

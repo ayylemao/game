@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://byd26jwycb5cs"]
+
+[ext_resource type="Script" uid="uid://qmkbycnwkeud" path="res://ui/inventory/slot/equipment/equipment_container.gd" id="1_n55bk"]
+[ext_resource type="PackedScene" uid="uid://buhyrhyjr5ryt" path="res://ui/inventory/slot/inventory_slot.tscn" id="2_nn280"]
+
+[node name="EquipmentContainer" type="HBoxContainer"]
+theme_override_constants/separation = 10
+script = ExtResource("1_n55bk")
+
+[node name="EquipmentSlot" parent="." instance=ExtResource("2_nn280")]
+layout_mode = 2
+
+[node name="EquipmentLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Weapon
+"
