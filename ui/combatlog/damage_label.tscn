@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://f0hfx35nvj8c"]
+
+[ext_resource type="FontFile" uid="uid://lcx8i0nk6831" path="res://assets/fonts/PixelOperator8.ttf" id="1_opp2u"]
+[ext_resource type="FontFile" uid="uid://bulg2aeo4ems2" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_vpllc"]
+[ext_resource type="Script" uid="uid://bkqi7bo2md1yu" path="res://ui/combatlog/damage_label.gd" id="3_wal4s"]
+
+[sub_resource type="Theme" id="Theme_aks1t"]
+default_font_size = 8
+
+[node name="DamageLabel" type="RichTextLabel"]
+offset_left = -75.0
+offset_top = -9.0
+offset_right = 76.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = SubResource("Theme_aks1t")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/normal_font = ExtResource("1_opp2u")
+theme_override_fonts/bold_font = ExtResource("2_vpllc")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+bbcode_enabled = true
+text = "test"
+scroll_active = false
+script = ExtResource("3_wal4s")

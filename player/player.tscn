@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvvqddl37ml60"]
 
-[ext_resource type="Texture2D" uid="uid://6gcqn2raekc4" path="res://art/player/player.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://c3wss5s1v1qew" path="res://art/player/player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://rbpqmcvoufn0" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://darts44efve8h" path="res://player/health_component.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://bhhbn133r0q0l" path="res://skill_system/components/base_stats.gd" id="4_yw30f"]
@@ -19,6 +19,7 @@ texture = ExtResource("1_4flbx")
 shape = SubResource("RectangleShape2D_fj7yv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 position_smoothing_speed = 1.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true

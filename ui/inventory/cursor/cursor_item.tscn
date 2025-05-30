@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://byts5cn3i178f"]
+
+[ext_resource type="Script" uid="uid://bjq46r7ha02mg" path="res://ui/inventory/cursor/cursor_item.gd" id="1_xluts"]
+
+[sub_resource type="Resource" id="Resource_obd85"]
+metadata/__load_path__ = "res://assets/sprites/chaos_orb.png"
+
+[sub_resource type="Resource" id="Resource_6spoc"]
+metadata/__load_path__ = "res://assets/sprites/wand_0001.png"
+
+[node name="CursorItem" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(5, 5)
+script = ExtResource("1_xluts")
+
+[node name="EffectTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.52549)
+layout_mode = 1
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 12.0
+offset_bottom = 12.0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("Resource_obd85")
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_vertical = 0
+texture = SubResource("Resource_6spoc")
