@@ -1,3 +1,4 @@
+@icon("res://art/editor_icons/node_2D/icon_ring.png")
 @tool
 class_name WorldItem
 extends Area2D

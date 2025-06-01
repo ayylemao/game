@@ -30,6 +30,10 @@ window/size/viewport_width=1600
 window/size/viewport_height=900
 window/size/initial_position=Vector2i(50, 50)
 
+[gui]
+
+theme/custom_font="uid://lcx8i0nk6831"
+
 [input]
 
 up={
